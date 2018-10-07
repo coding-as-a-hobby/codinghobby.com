@@ -1,0 +1,35 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "codinghobby-20181007164632-authRole",
+			"UnauthRoleArn": "arn:aws:iam::854896288097:role/codinghobby-20181007164632-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::854896288097:role/codinghobby-20181007164632-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "codinghobby-20181007164632-deployment",
+			"UnauthRoleName": "codinghobby-20181007164632-unauthRole",
+			"StackName": "codinghobby-20181007164632",
+			"StackId": "arn:aws:cloudformation:us-east-1:854896288097:stack/codinghobby-20181007164632/13077b20-ca72-11e8-97f6-503aca4a58fd"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/codinghobby-20181007164632-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-10-07T21:07:17.706Z",
+			"output": {
+				"CloudFrontSecureURL": "https://d1yuy4kskpckp2.cloudfront.net",
+				"S3BucketSecureURL": "https://codinghobby-20181007165150--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://codinghobby-20181007165150--hostingbucket.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E1K17URLD355IA",
+				"Region": "us-east-1",
+				"HostingBucketName": "codinghobby-20181007165150--hostingbucket",
+				"CloudFrontDomainName": "d1yuy4kskpckp2.cloudfront.net"
+			},
+			"lastPushDirHash": "VzKoc5nBFdo/0cWTMvbxNkgwhuM="
+		}
+	}
+}

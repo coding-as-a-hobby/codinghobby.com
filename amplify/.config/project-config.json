@@ -1,0 +1,20 @@
+{
+    "projectName": "codinghobby",
+    "projectPath": "/Users/shirishmunukuntla/Documents/Fonteva/coding-hobby",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "/Users/shirishmunukuntla/.npm-packages/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "angular",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "dist/coding-hobby",
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "ng serve"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/shirishmunukuntla/.npm-packages/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}
