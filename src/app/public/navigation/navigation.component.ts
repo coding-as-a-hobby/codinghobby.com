@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 export interface IMedia {
   title: string;
   src: string;
@@ -11,6 +12,8 @@ export interface IMedia {
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  signInForm: FormGroup;
+  signupForm: FormGroup;
   playlist: Array<IMedia> = [
     {
       title: 'Pale Blue Dot',
@@ -28,7 +31,18 @@ export class NavigationComponent implements OnInit {
       type: 'video/mp4'
     }
   ];
-  constructor() { }
+
+
+  constructor(public fb: FormBuilder) {
+  this.signInForm = fb.group({
+    darkFormEmailEx: ['', [Validators.required, Validators.email]],
+    darkFormPasswordEx: ['', Validators.required],
+  });
+  this.signupForm = fb.group({
+    darkFormEmailEx: ['', [Validators.required, Validators.email]],
+    darkFormPasswordEx: ['', Validators.required],
+  });
+}
 
   ngOnInit() {
   }

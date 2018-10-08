@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { AwsComponent } from './public/aws/aws.component';
+import { MyaccountComponent } from './public/myaccount/myaccount.component';
 
 const routes: Route[] = [
   // { path: '', pathMatch: 'full', redirectTo: 'pages/aws-guest' },
@@ -11,6 +12,7 @@ const routes: Route[] = [
   {
     path: 'public', children:
       [
+        { path: 'myaccount', component: MyaccountComponent },
         { path: 'aws', component: AwsComponent },
       ]
   },

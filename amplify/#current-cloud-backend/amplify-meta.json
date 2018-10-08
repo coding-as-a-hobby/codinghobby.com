@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/codinghobby-20181007164632-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-10-07T21:07:17.706Z",
+			"lastPushTimeStamp": "2018-10-08T02:17:33.999Z",
 			"output": {
 				"CloudFrontSecureURL": "https://d1yuy4kskpckp2.cloudfront.net",
 				"S3BucketSecureURL": "https://codinghobby-20181007165150--hostingbucket.s3.amazonaws.com",
@@ -30,6 +30,28 @@
 				"CloudFrontDomainName": "d1yuy4kskpckp2.cloudfront.net"
 			},
 			"lastPushDirHash": "VzKoc5nBFdo/0cWTMvbxNkgwhuM="
+		}
+	},
+	"auth": {
+		"cognito74860134": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/codinghobby-20181007164632-deployment/amplify-cfn-templates/auth/cognito74860134-cloudformation-template.yml",
+				"logicalId": "authcognito74860134"
+			},
+			"lastPushTimeStamp": "2018-10-08T02:17:34.001Z",
+			"output": {
+				"GoogleWebClient": "460343261411-cd5li6ombugfj6p9kkgstpnm9kasn5rp.apps.googleusercontent.com",
+				"AppClientSecret": "1pajohpv52ghad1ab7evtu9qh03b5fn5hg4clu593qsva24da8eh",
+				"UserPoolId": "us-east-1_r8MVhf5mp",
+				"AppClientIDWeb": "19qhklt9887nijta4p2ds0p37r",
+				"AppClientID": "3pa55l6hrabh7d0lbmrkek8cu6",
+				"IdentityPoolId": "us-east-1:c1af9dc1-1bb3-414c-9eb8-da5d6d0cebcf",
+				"IdentityPoolName": "codinghobby74860134_identitypool_74860134",
+				"UserPoolName": "codinghobby74860134_userpool_74860134"
+			},
+			"lastPushDirHash": "6KkU4g7kF5w5Ih7LQVrcb4EM5Iw="
 		}
 	}
 }
