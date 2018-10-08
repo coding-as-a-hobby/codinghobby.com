@@ -94,6 +94,17 @@
                               </ul>
                           </mdb-accordion-item-body>
                       </mdb-accordion-item>
+                      <mdb-accordion-item>
+                          <mdb-accordion-item-head mdbWavesEffect>
+                              <i class="fa fa-eye"></i> aws </mdb-accordion-item-head>
+                          <mdb-accordion-item-body>
+                              <ul *ngFor="let x of playlist">
+                                  <li>
+                                      <a href="#" class="waves-effect" mdbWavesEffect>{{ x.title}}</a>
+                                  </li>
+                              </ul>
+                          </mdb-accordion-item-body>
+                      </mdb-accordion-item>
 
                       <!-- Simple link -->
                       <mdb-accordion-item class="no-collase">
@@ -135,7 +146,7 @@
       <navlinks>
           <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
               <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect>
+                  <a class="nav-link waves-light" mdbWavesEffect routerLink="public/aws">
                       <i class="fa fa-envelope"></i>
                       <span class="clearfix d-none d-sm-inline-block">Contact</span>
                   </a>

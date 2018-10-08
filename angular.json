@@ -40,6 +40,9 @@
               },
               {
                 "input": "node_modules/angular-calendar/scss/angular-calendar.scss"
+              },
+              {
+                "input": "node_modules/videogular2/fonts/videogular.css"
               }
             ],
             "scripts": [{
@@ -109,7 +112,8 @@
               "scss/bootstrap/bootstrap.scss",
               "scss/mdb.scss",
               "src/styles.scss",
-              "node_modules/angular-calendar/scss/angular-calendar.scss"
+              "node_modules/angular-calendar/scss/angular-calendar.scss",
+              "node_modules/videogular2/fonts/videogular.css"
             ],
             "assets": [{
                 "glob": "**/*",

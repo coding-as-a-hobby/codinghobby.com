@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+export interface IMedia {
+  title: string;
+  src: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-navigation',
@@ -6,7 +11,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-
+  playlist: Array<IMedia> = [
+    {
+      title: 'Pale Blue Dot',
+      src: 'https://s3.amazonaws.com/codinghobby.com/2018+Future+of+Python+and+Why+we+need+learn.mp4',
+      type: 'video/mp4'
+    },
+    {
+      title: 'Big Buck Bunny',
+      src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
+      type: 'video/mp4'
+    },
+    {
+      title: 'Elephants Dream',
+      src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
+      type: 'video/mp4'
+    }
+  ];
   constructor() { }
 
   ngOnInit() {

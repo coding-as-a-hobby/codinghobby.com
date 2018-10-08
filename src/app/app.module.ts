@@ -6,6 +6,7 @@ import { NavigationComponent } from './public/navigation/navigation.component';
 import { FooterComponent } from './public/footer/footer.component';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutes } from './app-route.service';
 // For MDB Angular Pro
 import {
   WavesModule, NavbarModule, InputsModule, ButtonsModule,
@@ -13,6 +14,11 @@ import {
 } from 'ng-uikit-pro-standard';
 import { IntroComponent } from './public/intro/intro.component';
 import { VideosComponent } from './public/videos/videos.component';
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
+import { AwsComponent } from './public/aws/aws.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,8 @@ import { VideosComponent } from './public/videos/videos.component';
     NavigationComponent,
     FooterComponent,
     IntroComponent,
-    VideosComponent
+    VideosComponent,
+    AwsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +38,16 @@ import { VideosComponent } from './public/videos/videos.component';
     ButtonsModule,
     SidenavModule,
     AccordionModule,
-    IconsModule
+    IconsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    AppRoutes
   ],
   providers: [MDBSpinningPreloader,
     { provide: HTTP_INTERCEPTORS, useClass: NgProgressModule, multi: true }],
   bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

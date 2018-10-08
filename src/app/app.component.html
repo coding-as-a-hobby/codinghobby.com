@@ -1,8 +1,14 @@
+<ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300" [spinner]="true"
+  [spinnerPosition]="'left'" [thick]="true" [meteor]="true" [color]="'blue'" [ease]="'linear'"></ng-progress>
 <app-navigation></app-navigation>
-<app-intro></app-intro>
-<app-videos></app-videos>
+<app-intro *ngIf="_router.url === '/'"></app-intro>
+<app-videos *ngIf="_router.url === '/'"></app-videos>
 <!--Main Layout-->
-<!--<main>
+<!--<main *ngIf="_router.url != '/'">
+  <div class="container-fluid">
+
+  </div>
 </main>-->
 <!--/Main layout-->
-<app-footer></app-footer>
+<app-footer *ngIf="_router.url === '/'"></app-footer>
+<router-outlet></router-outlet>

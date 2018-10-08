@@ -2,23 +2,44 @@
     <div class="full-bg-img mask">
         <div class="container flex-center">
             <div class="row flex-center pt-5 mt-3 w-100">
-                <div class="col-md-6 text-center text-md-left margins">
-                    <div class="white-text">
-                        <h2 class="h1 h1-responsive wow fadeInLeft" data-wow-delay="0.3s">Make purchases with our app </h2>
-                            <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-                            <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae iste.</h6>
-                            <br>
-                            <a mdbBtn color="white" outline="true" class="wow fadeInLeft waves-light" data-wow-delay="0.3s" mdbWavesEffect>Learn more</a>
-                            <a mdbBtn color="white" outline="true" class="wow fadeInLeft waves-light" data-wow-delay="0.3s" mdbWavesEffect>Download
-                                <i class="fa fa-android left right" aria-hidden="true"></i>
-                                <i class="fa fa-apple left" aria-hidden="true"></i>
-                                <i class="fa fa-windows" aria-hidden="true"></i>
-                            </a>
-                    </div>
-                </div>
+                <div class="col-md-12">
+                    <vg-player>
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
 
-                <div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-                    <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-admin.png" alt="" class="img-responsive">
+                        <vg-scrub-bar [vgSlider]="true">
+                            <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+                            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                        </vg-scrub-bar>
+
+                        <vg-controls>
+                            <vg-play-pause></vg-play-pause>
+                            <vg-playback-button></vg-playback-button>
+
+                            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+                            <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+                            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+                            <vg-track-selector></vg-track-selector>
+                            <vg-mute></vg-mute>
+                            <vg-volume></vg-volume>
+
+                            <vg-fullscreen></vg-fullscreen>
+                        </vg-controls>
+
+                        <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+                            <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+                            <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
+                            <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
+
+                            <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default>
+                            <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt" srclang="es">
+                        </video>
+                    </vg-player>
+                    <br>
                 </div>
             </div>
         </div>
