@@ -1,0 +1,147 @@
+<!--Double navigation-->
+<header>
+
+  <!-- Sidebar navigation -->
+  <mdb-side-nav #sidenav class="sn-bg-1" [fixed]="false">
+
+    <mdb-navbar-brand>
+      <li>
+        <div class="logo-wrapper waves-light">
+          <a href="#">
+            <img src="http://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center">
+          </a>
+        </div>
+      </li>
+      <!--/. Logo -->
+    </mdb-navbar-brand>
+
+    <links>
+      <!--<li>
+          <input class="form-control form-control-sm" type="text" [(ngModel)]="searchText" placeholder="Search">
+        <ul class="collapsible collapsible-accordion" *ngFor="let link of leftLinks | filter: searchText">
+          <mdb-accordion [multiple]="false" aria-multiselectable="false">
+
+
+            <mdb-accordion-item class="no-collase">
+              <mdb-accordion-item-head mdbWavesEffect [routerLink]="['/private/aws']" routerLinkActive="router-link-active">
+               {{ link }}</mdb-accordion-item-head>
+              <mdb-accordion-item-body></mdb-accordion-item-body>
+            </mdb-accordion-item>
+
+          </mdb-accordion>
+        </ul>
+      </li>-->
+      <!--Social-->
+      <li>
+        <ul class="social">
+          <li>
+            <a class="icons-sm fb-ic">
+              <i class="fa fa-facebook"> </i>
+            </a>
+          </li>
+          <li>
+            <a class="icons-sm pin-ic">
+              <i class="fa fa-pinterest"> </i>
+            </a>
+          </li>
+          <li>
+            <a class="icons-sm gplus-ic">
+              <i class="fa fa-google-plus"> </i>
+            </a>
+          </li>
+          <li>
+            <a class="icons-sm tw-ic">
+              <i class="fa fa-twitter"> </i>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!--/Social-->
+      <!--Search Form-->
+      <li>
+        <!--<form class="search-form" role="search">-->
+        <div class="form-group md-form mt-0 pt-1 waves-light search-form" mdbWavesEffect>
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+        </div>
+        <!--</form>-->
+
+        <!--/.Search Form-->
+        <!-- Side navigation links -->
+
+        <ul class="collapsible collapsible-accordion">
+          <li *ngFor="let link of leftLinks | filter: searchText" routerLink="/private/{{ link }}" routerLinkActive="router-link-active">
+            <mdb-accordion [multiple]="false" aria-multiselectable="false">
+              <mdb-accordion-item class="no-collase">
+                <mdb-accordion-item-head mdbWavesEffect>
+                  <i class="fa fa-book"></i> {{ link | uppercase }} <span class="badge badge-primary badge-pill">14</span></mdb-accordion-item-head>
+              </mdb-accordion-item>
+            </mdb-accordion>
+          </li>
+        </ul>
+      </li>
+      <!--/. Side navigation links -->
+    </links>
+    <div class="sidenav-bg mask-strong"></div>
+  </mdb-side-nav>
+  <!--/. Sidebar navigation -->
+
+  <!-- Navbar -->
+  <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav"
+    [containerInside]="false">
+
+    <navlinks class="navbar-container">
+      <!-- SideNav slide-out button -->
+      <div class="float-left">
+        <a (click)="sidenav.show()" class="button-collapse hidden-nav-button-collapse btn-floating btn-sm purple-gradient"><i
+            class="fa fa-bars"></i></a>
+      </div>
+      <!--/. SideNav slide-out button -->
+    </navlinks>
+        <!--<mdb-navbar-brand>
+      <div class="breadcrumbs breadcrumbs-hidden-nav breadcrumb-dn mr-auto">
+        <p>CodingHobby</p>
+      </div>
+    </mdb-navbar-brand>-->
+
+        <navlinks>
+          <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav ie-hidden-double-nav">
+            <li class="nav-item">
+              <a class="btn-floating btn-sm purple-gradient" (click)="onSignOut()"><i class="fa fa-sign-out"></i></a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="_router.url != '/private/dashboard'" class="btn-floating btn-sm blue-gradient" (click)="basicModal.show()"><i
+                  class="fa fa-list-ol"></i></a>
+            </li>
+
+          </ul>
+        </navlinks>
+  </mdb-navbar>
+  <!--/. Navbar -->
+
+</header>
+<!--/.Double navigation-->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md modal-full-height modal-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Content</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li *ngFor="let item of playlist; let $index = index" (click)="onTopic(item, $index)">
+            {{ item.title }}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" mdbBtn class="waves-light peach-gradient" aria-label="Close" (click)="basicModal.hide()"
+          mdbWavesEffect>Close</button>
+      </div>
+    </div>
+  </div>
+</div>

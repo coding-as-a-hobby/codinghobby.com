@@ -1,14 +1,15 @@
 <ng-progress [direction]="'ltr+'" [min]="20" [max]="1" [speed]="200" [trickleSpeed]="300" [spinner]="true"
   [spinnerPosition]="'left'" [thick]="true" [meteor]="true" [color]="'blue'" [ease]="'linear'"></ng-progress>
-<app-navigation></app-navigation>
-<app-intro *ngIf="_router.url === '/'"></app-intro>
-<app-videos *ngIf="_router.url === '/'"></app-videos>
-<!--Main Layout-->
-<!--<main *ngIf="_router.url != '/'">
-  <div class="container-fluid">
-
+<app-navigation *ngIf="userState === 'signedOut'"></app-navigation>
+<app-usernavigation *ngIf="userState === 'signedIn'"></app-usernavigation>
+<app-intro *ngIf="userState === 'signedOut'"></app-intro>
+<main [ngClass]="{'py-0 px-0 my-0 mx-0': userState === 'signedOut'}">
+  <div [class.container-fluid]="userState === 'signedIn'">
+      <router-outlet></router-outlet>
   </div>
-</main>-->
-<!--/Main layout-->
-<app-footer *ngIf="_router.url === '/'"></app-footer>
-<router-outlet></router-outlet>
+</main>
+
+<!--*ngIf="_router.url === '/'"-->
+
+<app-footer *ngIf="userState === 'signedOut'"></app-footer>
+<!--<app-userfooter *ngIf="userState === 'signedIn'"></app-userfooter>-->

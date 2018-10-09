@@ -1,0 +1,11 @@
+type Query {
+  	listCourse(bucketName: String): AWSJSON!
+}
+
+type Course {
+	name: String!
+}
+
+schema {
+	query: Query
+}

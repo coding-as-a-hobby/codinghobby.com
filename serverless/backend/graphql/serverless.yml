@@ -1,0 +1,75 @@
+service: coding-hobby # NOTE: update this with your service name
+plugins:
+  - serverless-appsync-plugin
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: us-east-1
+custom:
+  accountId: 854896288097 #hard coded
+  appSync:
+    name: codinghobby
+    authenticationType: AMAZON_COGNITO_USER_POOLS
+    userPoolConfig:
+      awsRegion:  us-east-1
+      defaultAction: ALLOW
+      userPoolId:  us-east-1_r8MVhf5mp # us-east-1_4xMDkdY83 #{ Ref: CognitoUserPool } #hard coded
+    mappingTemplates:
+      - dataSource: codinghobby_courses_lambda
+        type: Query
+        field: listCourse
+        request: "listCourse-request-mapping-template.txt"
+        response: "listCourse-response-mapping-template.txt"
+    serviceRole: "codinghobbyappsyncrole"
+    dataSources:
+      - type: AMAZON_DYNAMODB
+        name: codinghobby_users_profile
+        config:
+          tableName: 'codinghobby_users_profile' #hard coded
+      - type: AWS_LAMBDA
+        name: codinghobby_courses_lambda
+        config:
+          lambdaFunctionArn: "arn:aws:lambda:us-east-1:${self:custom.accountId}:function:coding-hobby-${self:provider.stage}-codinghobby_courses_lambda"
+          serviceRoleArn: "arn:aws:iam::${self:custom.accountId}:role/${self:custom.appSync.serviceRole}"
+functions:
+  codinghobby_courses_lambda:
+    handler: handler.codinghobby_courses_lambda
+    role: codinghobbyappsyncrole
+resources:
+  Resources:
+    codinghobbyappsyncrole:
+      Type: "AWS::IAM::Role"
+      Properties:
+        RoleName: "codinghobbyappsyncrole"
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: "Allow"
+              Principal:
+                Service:
+                  - "appsync.amazonaws.com"
+                  - "lambda.amazonaws.com"
+                  - "s3.amazonaws.com"
+              Action:
+                - "sts:AssumeRole"
+        Policies:
+          - PolicyName: "codinghobbyappsyncrole-Policy"
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: "Allow"
+                  Action:
+                    - "dynamodb:Query"
+                    - "dynamodb:BatchWriteItem"
+                    - "dynamodb:GetItem"
+                    - "dynamodb:DeleteItem"
+                    - "dynamodb:PutItem"
+                    - "dynamodb:Scan"
+                    - "dynamodb:UpdateItem"
+                    - "lambda:invokeFunction"
+                    - "s3:ListBucket"
+                  Resource:
+                    - "arn:aws:lambda:us-east-1:*:function:coding-hobby-${self:provider.stage}-codinghobby_courses_lambda"
+                    - "arn:aws:lambda:us-east-1:*:function:coding-hobby-${self:provider.stage}-codinghobby_courses_lambda:*"
+                    - "arn:aws:s3:::codinghobby.com"

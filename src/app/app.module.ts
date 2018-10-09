@@ -19,13 +19,15 @@ import {
 } from 'ng-uikit-pro-standard';
 // MDB Angular Pro
 import { IntroComponent } from './public/intro/intro.component';
-import { VideosComponent } from './public/videos/videos.component';
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
-import { AwsComponent } from './public/aws/aws.component';
-import { MyaccountComponent } from './public/myaccount/myaccount.component';
+import { AwsComponent } from './private/aws/aws.component';
+import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { UsernavigationComponent, FilterPipe } from './private/usernavigation/usernavigation.component';
+import { UserfooterComponent } from './private/userfooter/userfooter.component';
+import { PlayerService } from './services/player.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import { MyaccountComponent } from './public/myaccount/myaccount.component';
     NavigationComponent,
     FooterComponent,
     IntroComponent,
-    VideosComponent,
     AwsComponent,
-    MyaccountComponent
+    DashboardComponent,
+    UsernavigationComponent,
+    UserfooterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,7 @@ import { MyaccountComponent } from './public/myaccount/myaccount.component';
     VgBufferingModule,
     AppRoutes
   ],
-  providers: [MDBSpinningPreloader,AmplifyService, AuthGuardService,
+  providers: [MDBSpinningPreloader, AmplifyService, PlayerService, AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: NgProgressModule, multi: true }],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]

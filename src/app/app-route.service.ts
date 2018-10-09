@@ -2,18 +2,19 @@
 import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { AwsComponent } from './public/aws/aws.component';
-import { MyaccountComponent } from './public/myaccount/myaccount.component';
+import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { AuthGuardService } from './services/auth-gaurd.service';
+import { AwsComponent } from './private/aws/aws.component';
 
 const routes: Route[] = [
-  // { path: '', pathMatch: 'full', redirectTo: 'pages/aws-guest' },
-  // { path: '', pathMatch: 'full', redirectTo: '/' },
   { path: '', pathMatch: 'full', redirectTo: '/' },
   {
-    path: 'public', children:
+    path: 'private',
+    canActivate: [AuthGuardService],
+    children:
       [
-        { path: 'myaccount', component: MyaccountComponent },
-        { path: 'aws', component: AwsComponent },
+        { path: 'dashboard', component: DashboardComponent },
+        { path: 'aws', component: AwsComponent }
       ]
   },
   { path: '**', redirectTo: '/' }
