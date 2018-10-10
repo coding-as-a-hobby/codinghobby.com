@@ -1,0 +1,16 @@
+{
+  "name": "api-listtechnology",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "“Shirish <“shirish.munukuntla@gmail.com”>",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.331.0",
+    "middy": "^0.19.1"
+  }
+}
