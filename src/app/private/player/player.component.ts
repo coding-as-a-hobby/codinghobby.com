@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { VgAPI } from 'videogular2/core';
+import { Component } from '@angular/core';
 import { PlayerService } from 'app/services/player.service';
+import { VgAPI } from 'videogular2/core';
 
 export interface IMedia {
   title: string;
@@ -9,11 +9,11 @@ export interface IMedia {
 }
 
 @Component({
-  selector: 'app-aws',
-  templateUrl: './aws.component.html',
-  styleUrls: ['./aws.component.scss']
+  selector: 'app-player',
+  templateUrl: './player.component.html',
+  styleUrls: ['./player.component.scss']
 })
-export class AwsComponent {
+export class PlayerComponent {
 
   currentIndex = 0;
   currentItem: IMedia;

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AmplifyService } from 'aws-amplify-angular';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { PlayerService } from 'app/services/player.service';
+import { graphqlOperation } from 'aws-amplify';
+import { AmplifyService } from 'aws-amplify-angular';
+
 import { IMedia } from '../aws/aws.component';
-import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-usernavigation',

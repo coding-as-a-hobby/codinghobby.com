@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { AmplifyService } from 'aws-amplify-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AmplifyService } from 'aws-amplify-angular';
 
 @Component({
   selector: 'app-navigation',
@@ -34,8 +34,7 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSignIn() {
     this.amplifyService.auth().signIn(this.signinForm.value.username, this.signinForm.value.password)
@@ -43,7 +42,8 @@ export class NavigationComponent implements OnInit {
         this.signinForm.reset();
         this._route.navigateByUrl('/private/dashboard');
       })
-      .catch(err => { console.log(err);
+      .catch(err => {
+        console.log(err);
         this._route.navigateByUrl('/');
       });
   }
@@ -57,7 +57,7 @@ export class NavigationComponent implements OnInit {
         // phone_number: this.signupForm.value.phone,
         // other custom attributes
       },
-      validationData: []  //optional
+      validationData: []  // optional
     })
       .then(data => {
         this.signupForm.reset();

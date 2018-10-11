@@ -69,7 +69,7 @@
         <!-- Side navigation links -->
 
         <ul class="collapsible collapsible-accordion">
-          <li *ngFor="let link of leftLinks | filter: searchText" routerLink="/private/{{ link }}" routerLinkActive="router-link-active">
+          <li *ngFor="let link of leftLinks | filter: searchText" routerLink="/private/player" routerLinkActive="router-link-active">
             <mdb-accordion [multiple]="false" aria-multiselectable="false">
               <mdb-accordion-item class="no-collase">
                 <mdb-accordion-item-head mdbWavesEffect>

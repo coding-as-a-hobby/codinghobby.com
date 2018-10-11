@@ -1,7 +1,5 @@
 
-
-/* You can add global styles to this file, and also import other style files */
-/* Auth related styles --> Start */
+/* start: aws amplify UI component styles*/
 @import "~@aws-amplify/ui/src/Theme.css";
 @import "~@aws-amplify/ui/src/Angular.css";
 /*.amplify-form-button {
@@ -10,16 +8,16 @@
 .amplify-form-button:hover {
   background-color: black
 }*/
-/* Auth related styles --> End */
+/* end: aws amplify UI component styles*/
 
-/* Make navbar narrow*/
+/* start: narrow the navbar*/
 .navbar.scrolling-navbar {
   padding-top: unset !important;
   padding-bottom: unset !important;
 }
+/* end: narrow the navbar*/
 
-/* To Show Player*/
-
+/* start: player set to full page*/
 .container-fluid {
   width: 100% !important;
   padding-right: unset !important;
@@ -27,10 +25,7 @@
   margin-right: auto !important;
   margin-left: auto !important;
 }
-
 .hidden-sn main {
   padding-top: unset !important;
 }
-
-
-/* To Show Player*/
+/* end: player set to full page*/

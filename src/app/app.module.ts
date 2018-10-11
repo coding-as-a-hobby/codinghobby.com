@@ -1,33 +1,43 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
-import { NavigationComponent } from './public/navigation/navigation.component';
-import { FooterComponent } from './public/footer/footer.component';
-import { AuthGuardService } from './services/auth-gaurd.service';
-import { NgProgressModule } from '@ngx-progressbar/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+import {
+  AccordionModule,
+  ButtonsModule,
+  CardsModule,
+  CheckboxModule,
+  IconsModule,
+  InputsModule,
+  MDBSpinningPreloader,
+  ModalModule,
+  NavbarModule,
+  PopoverModule,
+  SelectModule,
+  SidenavModule,
+  TooltipModule,
+  WavesModule,
+} from 'ng-uikit-pro-standard';
+import { VgBufferingModule } from 'videogular2/buffering';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgCoreModule } from 'videogular2/core';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 
 import { AppRoutes } from './app-route.service';
-// For MDB Angular Pro
-import {
-  WavesModule, NavbarModule, InputsModule, ButtonsModule, ModalModule, TooltipModule, PopoverModule ,
-  SidenavModule, AccordionModule, MDBSpinningPreloader, IconsModule, CheckboxModule, CardsModule, SelectModule
-} from 'ng-uikit-pro-standard';
-// MDB Angular Pro
-import { IntroComponent } from './public/intro/intro.component';
-import { VgCoreModule } from 'videogular2/core';
-import { VgControlsModule } from 'videogular2/controls';
-import { VgOverlayPlayModule } from 'videogular2/overlay-play';
-import { VgBufferingModule } from 'videogular2/buffering';
-import { AwsComponent } from './private/aws/aws.component';
+import { AppComponent } from './app.component';
+import { PlayerComponent } from './private/player/player.component';
 import { DashboardComponent } from './private/dashboard/dashboard.component';
-import { UsernavigationComponent, FilterPipe } from './private/usernavigation/usernavigation.component';
 import { UserfooterComponent } from './private/userfooter/userfooter.component';
+import { FilterPipe, UsernavigationComponent } from './private/usernavigation/usernavigation.component';
+import { FooterComponent } from './public/footer/footer.component';
+import { IntroComponent } from './public/intro/intro.component';
+import { NavigationComponent } from './public/navigation/navigation.component';
+import { AuthGuardService } from './services/auth-gaurd.service';
 import { PlayerService } from './services/player.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +45,7 @@ import { PlayerService } from './services/player.service';
     NavigationComponent,
     FooterComponent,
     IntroComponent,
-    AwsComponent,
+    PlayerComponent,
     DashboardComponent,
     UsernavigationComponent,
     UserfooterComponent,
@@ -60,7 +70,7 @@ import { PlayerService } from './services/player.service';
     VgOverlayPlayModule,
     FormsModule, ReactiveFormsModule,
     VgBufferingModule,
-    AppRoutes
+    AppRoutes,
   ],
   providers: [MDBSpinningPreloader, AmplifyService, PlayerService, AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: NgProgressModule, multi: true }],

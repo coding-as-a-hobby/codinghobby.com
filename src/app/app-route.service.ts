@@ -1,10 +1,11 @@
-
-import { AppComponent } from './app.component';
-import { Route, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
+
 import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { PlayerComponent } from './private/player/player.component';
 import { AuthGuardService } from './services/auth-gaurd.service';
-import { AwsComponent } from './private/aws/aws.component';
+
+
 
 const routes: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
@@ -14,7 +15,7 @@ const routes: Route[] = [
     children:
       [
         { path: 'dashboard', component: DashboardComponent },
-        { path: 'aws', component: AwsComponent }
+        { path: 'player', component: PlayerComponent }
       ]
   },
   { path: '**', redirectTo: '/' }

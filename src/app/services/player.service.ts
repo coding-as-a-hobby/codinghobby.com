@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { IMedia } from 'app/private/aws/aws.component';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable()

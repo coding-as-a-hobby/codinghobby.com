@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/codinghobby-20181007164632-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-10-08T02:17:33.999Z",
+			"lastPushTimeStamp": "2018-10-10T03:11:39.171Z",
 			"output": {
 				"CloudFrontSecureURL": "https://d1yuy4kskpckp2.cloudfront.net",
 				"S3BucketSecureURL": "https://codinghobby-20181007165150--hostingbucket.s3.amazonaws.com",
@@ -40,7 +40,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/codinghobby-20181007164632-deployment/amplify-cfn-templates/auth/cognito74860134-cloudformation-template.yml",
 				"logicalId": "authcognito74860134"
 			},
-			"lastPushTimeStamp": "2018-10-08T02:17:34.001Z",
+			"lastPushTimeStamp": "2018-10-10T03:11:39.172Z",
 			"output": {
 				"GoogleWebClient": "460343261411-cd5li6ombugfj6p9kkgstpnm9kasn5rp.apps.googleusercontent.com",
 				"AppClientSecret": "1pajohpv52ghad1ab7evtu9qh03b5fn5hg4clu593qsva24da8eh",
@@ -53,5 +53,8 @@
 			},
 			"lastPushDirHash": "6KkU4g7kF5w5Ih7LQVrcb4EM5Iw="
 		}
-	}
+	},
+	"function": {},
+	"api": {},
+	"storage": {}
 }
