@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AmplifyService } from 'aws-amplify-angular';
 
+
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -12,15 +14,14 @@ export class NavigationComponent implements OnInit {
   signinForm: FormGroup;
   signupForm: FormGroup;
   confirmForm: FormGroup;
-
   constructor(public fb: FormBuilder, private amplifyService: AmplifyService, private _route: Router) {
     this.signinForm = fb.group({
-      username: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+      username: [null, [Validators.required, Validators.minLength(6)]],
       password: [null, [Validators.required, Validators.minLength(8),
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]]
     });
     this.signupForm = fb.group({
-      username: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(15)]],
+      username: [null, [Validators.required, Validators.minLength(6)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8),
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]],
@@ -34,7 +35,7 @@ export class NavigationComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSignIn() {
     this.amplifyService.auth().signIn(this.signinForm.value.username, this.signinForm.value.password)
@@ -76,5 +77,12 @@ export class NavigationComponent implements OnInit {
     })
       .catch(err => console.log(err));
   }
-
+  /*onSignIn(googleUser) {
+    console.log('clicked');
+    const profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }*/
 }

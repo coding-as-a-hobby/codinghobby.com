@@ -70,7 +70,7 @@ import { SharedModule } from './shared/shared.module';
     VgOverlayPlayModule,
     FormsModule, ReactiveFormsModule,
     VgBufferingModule,
-    AppRoutes,
+    AppRoutes
   ],
   providers: [MDBSpinningPreloader, AmplifyService, PlayerService, AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: NgProgressModule, multi: true }],
